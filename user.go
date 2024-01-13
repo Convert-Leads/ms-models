@@ -4,9 +4,9 @@ import (
     "gorm.io/gorm"
 )
 
-type User struct {
+type Users struct {
     gorm.Model
-    Organisation_id  int    `json:"organisation_id"`
+    OrganisationID  int    `json:"organisation_id"`
     First_name       string `json:"first_name"`
     Last_name        string `json:"last_name"`
     Contact_address  string `json:"contact_address"`
