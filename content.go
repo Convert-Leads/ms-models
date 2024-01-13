@@ -1,3 +1,9 @@
+package models
+
+import (
+    "gorm.io/gorm"
+)
+
 type Content struct {
     gorm.Model
     OrganisationId  int        `json:"organisation_id"`

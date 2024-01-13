@@ -1,3 +1,9 @@
+package models
+
+import (
+    "gorm.io/gorm"
+)
+
 type UserInteractions struct {
     gorm.Model
     UserId              int        `json:"user_id"`

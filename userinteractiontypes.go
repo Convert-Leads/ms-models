@@ -1,3 +1,9 @@
+package models
+
+import (
+    "gorm.io/gorm"
+)
+
 type UserInteractionTypes struct {
     gorm.Model
     Name        string `json:"name"`
