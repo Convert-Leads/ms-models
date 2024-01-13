@@ -1,4 +1,4 @@
-module github.com/Convert-Leads/ms-models/v2
+module github.com/Convert-Leads/ms-models
 
 go 1.21.5
 
