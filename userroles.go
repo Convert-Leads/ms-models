@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type UserRoles struct {
+type UserRole struct {
     gorm.Model
     UserID int `json:"user_id"`
     RoleID int `json:"role_id"`

@@ -5,7 +5,7 @@ import (
     "time"
 )
 
-type UserSubscriptions struct {
+type UserSubscription struct {
     gorm.Model
     UserID               int        `json:"user_id"`
     SubscriptionLevelID int        `json:"subscription_level_id"`

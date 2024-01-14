@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type Organisations struct {
+type Organisation struct {
     gorm.Model
     Name           string `json:"name"`
     Description    string `json:"description"`

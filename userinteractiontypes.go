@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type UserInteractionTypes struct {
+type UserInteractionType struct {
     gorm.Model
     Name        string `json:"name"`
     Description string `json:"description"`

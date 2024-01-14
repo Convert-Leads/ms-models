@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type ContentTypes struct {
+type ContentType struct {
     gorm.Model
     OrganisationId int    `json:"organisation_id"`
     Name           string `json:"name"`

@@ -5,7 +5,7 @@ import (
     "time"
 )
 
-type UserInteractions struct {
+type UserInteraction struct {
     gorm.Model
     UserId              int        `json:"user_id"`
     ContentId           int        `json:"content_id"`

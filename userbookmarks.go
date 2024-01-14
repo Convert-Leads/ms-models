@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type UserBookmarks struct {
+type UserBookmark struct {
     gorm.Model
     UserID    int `json:"user_id"`
     ContentID int `json:"content_id"`

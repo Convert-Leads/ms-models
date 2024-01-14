@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type SubscriptionLevels struct {
+type SubscriptionLevel struct {
     gorm.Model
     Name            string  `json:"name"`
     Description     string  `json:"description"`

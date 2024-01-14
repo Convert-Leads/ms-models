@@ -4,7 +4,7 @@ import (
     "gorm.io/gorm"
 )
 
-type MetadataTags struct {
+type MetadataTag struct {
     gorm.Model
     OrganisationId int    `json:"organisation_id"`
     Name           string `json:"name"`

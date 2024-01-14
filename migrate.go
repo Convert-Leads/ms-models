@@ -7,20 +7,20 @@ import (
 func Migrate(db *gorm.DB) error {
     // AutoMigrate provided models
     if err := db.AutoMigrate(// enumerate all models here
-        &UserInteractions{},
+        &UserInteraction{},
         &Media{},
-        &UserInteractionTypes{},
-        &Organisations{},
-        &Users{},
+        &UserInteractionType{},
+        &Organisation{},
+        &User{},
         &Content{},
-        &ContentTypes{},
-        &ContentMetadataTags{},
-        &MetadataTags{},
-        &Roles{},
-        &UserRoles{},
-        &SubscriptionLevels{},
-        &UserSubscriptions{},
-        &UserBookmarks{},
+        &ContentType{},
+        &ContentMetadataTag{},
+        &MetadataTag{},
+        &Role{},
+        &UserRole{},
+        &SubscriptionLevel{},
+        &UserSubscription{},
+        &UserBookmark{},
         ); err != nil {
         return err
     }
