@@ -17,4 +17,5 @@ type User struct {
     Contact_youtube  string `json:"contact_youtube"`
     Contact_instagram string `json:"contact_instagram"`
     Contact_linkedin string `json:"contact_linkedin"`
+    Roles   []Role  `json:"roles"`
 }
