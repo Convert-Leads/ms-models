@@ -17,7 +17,6 @@ func Migrate(db *gorm.DB) error {
         &ContentMetadataTag{},
         &MetadataTag{},
         &Role{},
-        &UserRole{},
         &SubscriptionLevel{},
         &UserSubscription{},
         &UserBookmark{},
