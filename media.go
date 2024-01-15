@@ -6,6 +6,6 @@ import (
 
 type Media struct {
     gorm.Model
-    OrganisationId int    `json:"organisation_id"`
+    OrganisationId uint    `json:"organisation_id"`
     Uri            string `json:"uri"`
 }

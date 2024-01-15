@@ -7,9 +7,9 @@ import (
 
 type UserInteraction struct {
     gorm.Model
-    UserId              int        `json:"user_id"`
-    ContentId           int        `json:"content_id"`
-    InteractionTypeId   int        `json:"interaction_type_id"`
+    UserId              uint        `json:"user_id"`
+    ContentId           uint        `json:"content_id"`
+    InteractionTypeId   uint        `json:"interaction_type_id"`
     InteractionDatetime *time.Time `json:"interaction_datetime"`
     InteractionDetails  string     `json:"interaction_details"`
 }

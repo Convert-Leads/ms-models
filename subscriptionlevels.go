@@ -12,5 +12,5 @@ type SubscriptionLevel struct {
     Currency        string  `json:"currency"`
     Duration        int     `json:"duration"`
     Duration_unit   string  `json:"duration_unit"`
-    OrganisationID int     `json:"organisation_id"`
+    OrganisationId  uint    `json:"organisation_id"`
 }

@@ -6,6 +6,6 @@ import (
 
 type UserRole struct {
     gorm.Model
-    UserID int `json:"user_id"`
-    RoleID int `json:"role_id"`
+    UserId uint `json:"user_id"`
+    RoleId uint `json:"role_id"`
 }

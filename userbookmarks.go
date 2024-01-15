@@ -6,6 +6,6 @@ import (
 
 type UserBookmark struct {
     gorm.Model
-    UserID    int `json:"user_id"`
-    ContentID int `json:"content_id"`
+    UserID    uint `json:"user_id"`
+    ContentID uint `json:"content_id"`
 }

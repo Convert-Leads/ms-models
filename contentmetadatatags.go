@@ -6,6 +6,6 @@ import (
 
 type ContentMetadataTag struct {
     gorm.Model
-    ContentId     int `json:"content_id"`
-    MetadataTagId int `json:"metadata_tag_id"`
+    ContentId     uint `json:"content_id"`
+    MetadataTagId uint `json:"metadata_tag_id"`
 }
