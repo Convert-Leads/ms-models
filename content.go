@@ -3,7 +3,6 @@ package models
 import (
     "gorm.io/gorm"
     "time"
-    "database/sql"
 )
 
 type Content struct {
