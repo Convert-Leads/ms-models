@@ -18,5 +18,5 @@ type User struct {
     Contact_instagram string `json:"contact_instagram"`
     Contact_linkedin string `json:"contact_linkedin"`
     Roles   []Role  `json:"roles" gorm:"many2many:user_roles;"`
-    Bookmarks []Bookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
+    Bookmarks []UserBookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
 }
