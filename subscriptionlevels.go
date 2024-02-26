@@ -14,4 +14,6 @@ type SubscriptionLevel struct {
     DurationUnit   string             `json:"duration_unit"` 
     OrganisationId uint               `json:"organisation_id"`
     ACLs           []SubscriptionACL  `gorm:"foreignKey:SubscriptionLevelId" json:"acls"` 
+    AllowedMetadataTags []MetadataTag `gorm:"many2many:subscription_metadata_tags;"`
+    AllowedContentTypes []ContentType `gorm:"many2many:subscription_content_types;"`
 }
