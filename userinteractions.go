@@ -9,6 +9,7 @@ type UserInteraction struct {
     gorm.Model
     UserId              uint       `json:"user_id"`
     ContentId           uint       `json:"content_id"`
+    InteractionType     InteractionType `gorm:"foreignKey:InteractionTypeId"`
     InteractionTypeId   uint       `json:"interaction_type_id"`
     InteractionDatetime *time.Time `json:"interaction_datetime"`
     InteractionDetails  string     `json:"interaction_details"`
