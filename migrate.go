@@ -20,7 +20,13 @@ func Migrate(DB *gorm.DB) error {
         &SubscriptionLevel{},
         &UserSubscription{},
         &UserBookmark{},
-        ); err != nil {
+        &DeltaContent{},
+        &StripeDetail{},
+        &PaymentTransaction{},
+        &SubscriptionACL{},
+        &UserRole{},
+        &UserBookmark{},
+    ); err != nil {
         return err
     }
 
