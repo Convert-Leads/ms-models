@@ -7,13 +7,13 @@ import (
 func Migrate(DB *gorm.DB) error {
     // AutoMigrate provided models
     if err := DB.AutoMigrate(// enumerate all models here
-        &UserInteraction{},
-        &Media{},
-        &UserInteractionType{},
+        &ContentType{},
         &Organisation{},
         &User{},
         &Content{},
-        &ContentType{},
+        &UserInteraction{},
+        &Media{},
+        &UserInteractionType{},
         &ContentMetadataTag{},
         &MetadataTag{},
         &Role{},
