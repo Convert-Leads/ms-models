@@ -14,7 +14,7 @@ type Organisation struct {
 	Address        string            `json:"address"`
 	ContactEmail   string            `json:"contact_email"`
 	ContactPhone   string            `json:"contact_phone"`
-    StripeApiKey   string            `json:"-"`
+  StripeApiKey   string            `json:"-"`
 	StripeDetails  []StripeDetail    `json:"stripe_details" gorm:"foreignKey:OrganisationID"`
 	Payments       []PaymentTransaction `json:"payments" gorm:"foreignKey:OrganisationID"`
 }

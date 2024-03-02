@@ -16,5 +16,7 @@ type Content struct {
     UserInteractions   []UserInteraction `gorm:"foreignKey:ContentId" json:"user_interactions"` // Association to UserInteraction with JSON annotation
     DeltaContent       DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` // Association to DeltaContent with JSON annotation
     CreatedBy  uint   `json:"created_by"`  // ID of the user who created the record
-    UpdatedBy  uint   `json:"updated_by"`  // ID of the user who last updated the record
+    UpdatedBy  uint   `json:"updated_by"`  
+    Caption    string `json:"caption"` 
+    CTA        string `json:"cta"` 
 }
