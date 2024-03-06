@@ -16,12 +16,12 @@ type Content struct {
     Media              *Media     `gorm:"foreignKey:MediaID" json:"media"` 
     ThumbnailID        uint       
     Thumbnail          *Media     `gorm:"foreignKey:ThumbnailID" json:"thumbnail"` 
-    UserInteractions   []*UserInteraction `gorm:"foreignKey:ContentId" json:"user_interactions"` 
+    UserInteractions   []UserInteraction `gorm:"foreignKey:ContentId" json:"user_interactions"` 
     DeltaContent       *DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` 
     CreatedBy          uint       `json:"created_by"`  
     UpdatedBy          uint       `json:"updated_by"`  
     Caption            string     `json:"caption"` 
     CTA                string     `json:"cta"` 
-    Tags               []*MetadataTag `gorm:"many2many:content_tags;" json:"tags"`
-    AllowedUsers       []*User `gorm:"many2many:content_allowed_users;" json:"allowed_users"`
+    Tags               []MetadataTag `gorm:"many2many:content_tags;" json:"tags"`
+    AllowedUsers       []User `gorm:"many2many:content_allowed_users;" json:"allowed_users"`
 }
