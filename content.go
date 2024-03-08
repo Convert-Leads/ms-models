@@ -24,4 +24,9 @@ type Content struct {
     CTA                string     `json:"cta"` 
     Tags               []MetadataTag `gorm:"many2many:content_tags;" json:"tags"`
     AllowedUsers       []User `gorm:"many2many:content_allowed_users;" json:"allowed_users"`
+    LikeCount          int        `json:"like_count" gorm:"-"`
+    Liked              bool       `json:"liked" gorm:"-"`
+    Bookmarked         bool       `json:"bookmarked" gorm:"-"`
+    Pinned             bool       `json:"pinned" gorm:"-"`
+    CommentCount       int        `json:"comment_count" gorm:"-"`
 }
