@@ -27,6 +27,5 @@ type Content struct {
     LikeCount          int        `json:"like_count" gorm:"-"`
     Liked              bool       `json:"liked" gorm:"-"`
     Bookmarked         bool       `json:"bookmarked" gorm:"-"`
-    Pinned             bool       `json:"pinned" gorm:"-"`
     CommentCount       int        `json:"comment_count" gorm:"-"`
 }
