@@ -12,9 +12,9 @@ type Content struct {
     AvailableDatetime  *time.Time `json:"available_datetime"`
     ExpiryDatetime     *time.Time `json:"expiry_datetime"`
     Pinned             bool       `json:"pinned"`
-    MediaID            uint       
+    MediaID            *uint       
     Media              *Media     `gorm:"foreignKey:MediaID" json:"media"` 
-    ThumbnailID        uint       
+    ThumbnailID        *uint       
     Thumbnail          *Media     `gorm:"foreignKey:ThumbnailID" json:"thumbnail"` 
     UserInteractions   []UserInteraction `gorm:"foreignKey:ContentId" json:"user_interactions"` 
     DeltaContent       *DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` 
