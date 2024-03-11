@@ -27,6 +27,8 @@ func Migrate(DB *gorm.DB) error {
         &UserRole{},
         &UserBookmark{},
         &Safe{},
+        &PriceOption{},
+        
     ); err != nil {
         return err
     }
