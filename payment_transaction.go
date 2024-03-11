@@ -8,7 +8,7 @@ import (
 type PaymentTransaction struct {
 	gorm.Model
 	StripeDetailID  uint       `json:"stripe_detail_id"` // Foreign key to StripeDetail
-	OrganisationID  uint       `json:"organisation_id"` // Helps with direct queries for an organisation
+	OrganisationId  uint       `json:"organisation_id"` // Helps with direct queries for an organisation
 	TransactionID   string     `json:"transaction_id"` // Stripe's charge or transaction ID
 	Amount          int64      `json:"amount"` // Amount in smallest currency unit (e.g., cents)
 	Currency        string     `json:"currency"`
@@ -18,5 +18,5 @@ type PaymentTransaction struct {
 	PaymentIntentID string     `json:"payment_intent_id"` // Stripe PaymentIntent ID
 	SubscriptionID  string     `json:"subscription_id"` // Stripe Subscription ID, redundant but useful for direct queries
 	StripeDetail    StripeDetail `gorm:"foreignKey:StripeDetailID"`
-	Organisation    Organisation `gorm:"foreignKey:OrganisationID"`
+	Organisation    Organisation `gorm:"foreignKey:OrganisationId"`
 }
