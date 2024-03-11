@@ -15,10 +15,10 @@ type Organisation struct {
 	ContactEmail   string            `json:"contact_email"`
 	ContactPhone   string            `json:"contact_phone"`
   StripeApiKey   string            `json:"-"`
-	StripeDetails  []StripeDetail    `json:"stripe_details" gorm:"foreignKey:OrganisationID"`
-	Payments       []PaymentTransaction `json:"payments" gorm:"foreignKey:OrganisationID"`
-	SubscriptionLevels []SubscriptionLevel `json:"subscription_levels" gorm:"foreignKey:OrganisationID"`
-	Users          []User            `json:"users" gorm:"foreignKey:OrganisationID"`
-	Content        []Content         `json:"content" gorm:"foreignKey:OrganisationID"`
-	Tags 					 []MetadataTag 			`json:"tags" gorm:"foreignKey:OrganisationID"`
+	StripeDetails  []StripeDetail    `json:"stripe_details" gorm:"foreignKey:OrganisationId"`
+	Payments       []PaymentTransaction `json:"payments" gorm:"foreignKey:OrganisationId"`
+	SubscriptionLevels []SubscriptionLevel `json:"subscription_levels" gorm:"foreignKey:OrganisationId"`
+	Users          []User            `json:"users" gorm:"foreignKey:OrganisationId"`
+	Content        []Content         `json:"content" gorm:"foreignKey:OrganisationId"`
+	Tags 					 []MetadataTag 			`json:"tags" gorm:"foreignKey:OrganisationId"`
 }
