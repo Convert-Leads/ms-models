@@ -18,6 +18,7 @@ func Migrate(DB *gorm.DB) error {
         &MetadataTag{},
         &Role{},
         &SubscriptionLevel{},
+        &PriceOption{},
         &UserSubscription{},
         &UserBookmark{},
         &DeltaContent{},
@@ -27,8 +28,8 @@ func Migrate(DB *gorm.DB) error {
         &UserRole{},
         &UserBookmark{},
         &Safe{},
-        &PriceOption{},
         
+
     ); err != nil {
         return err
     }
