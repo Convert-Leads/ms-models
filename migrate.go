@@ -24,7 +24,6 @@ func Migrate(DB *gorm.DB) error {
         &DeltaContent{},
         &StripeDetail{},
         &PaymentTransaction{},
-        &SubscriptionACL{},
         &UserRole{},
         &UserBookmark{},
         &Safe{},
