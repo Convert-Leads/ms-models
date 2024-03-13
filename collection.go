@@ -7,6 +7,7 @@ import (
 // Collection represents a group of chapters, like a book or a course.
 type Collection struct {
 	gorm.Model
+	OrganisationID uint      `json:"organisationId"` // Foreign Key
 	Title       string    `json:"title"`
 	Description string    `json:"description"`
 	ImageID		 uint      `json:"imageId"` // Foreign Key
