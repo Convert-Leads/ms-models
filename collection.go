@@ -23,7 +23,7 @@ type Chapter struct {
 	ImageID		 uint      `json:"imageId"` // Foreign Key
 	Image			 Media		 `json:"image" gorm:"foreignKey:ImageID;references:ID"`
 	OrderInCollection int       `json:"orderInCollection"`
-	Contents          []Content `json:"contents" gorm:"foreignKey:ChapterID;references:ID"` // Explicit one-to-many relationship
+	Contents          []ChapterContent `json:"contents" gorm:"foreignKey:ChapterID;references:ID"` // Explicit one-to-many relationship
 }
 
 // Content represents the actual content or items within each chapter.
