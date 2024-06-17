@@ -1,5 +1,9 @@
 package models
 
+import (
+    "gorm.io/gorm"
+)
+
 type CallToAction struct {
 	gorm.Model
 	Text 			 string `json:"text"`
