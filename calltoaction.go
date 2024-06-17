@@ -10,5 +10,7 @@ type CallToAction struct {
 	Type       string `json:"type"`
 	ContentID uint   `json:"content_id"`
 	Content   *Content `json:"content"`
+	CollectionID uint   `json:"collection_id"`
+	Collection   *Collection `json:"collection"`
 	URL        string `json:"url"`
 }
