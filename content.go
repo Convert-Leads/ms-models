@@ -22,7 +22,7 @@ type Content struct {
     CreatedBy          uint       `json:"created_by"`  
     UpdatedBy          uint       `json:"updated_by"`  
     Caption            string     `json:"caption"` 
-    CTA                string     `json:"cta"` 
+    CTA                *CallToAction     `json:"cta"`
     Tags               []MetadataTag `gorm:"many2many:content_tags;" json:"tags"`
     AllowedUsers       []User `gorm:"many2many:content_allowed_users;" json:"allowed_users"`
     LikeCount          int        `json:"like_count" gorm:"-"`

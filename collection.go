@@ -36,3 +36,4 @@ type ChapterContent struct {
 	Content			 Content `json:"content" gorm:"foreignKey:ContentId;references:ID"` 
 	OrderInChapter int    `json:"orderInChapter"`
 }
+
