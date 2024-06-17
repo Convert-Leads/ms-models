@@ -9,6 +9,7 @@ type Collection struct {
 	gorm.Model
 	OrganisationID uint      `json:"organisationId"` // Foreign Key
 	Title       string    `json:"title"`
+	Type				string    `json:"type"`
 	Description string    `json:"description"`
 	ImageID		 uint      `json:"imageId"` // Foreign Key
 	Image			 Media		 `json:"image" gorm:"foreignKey:ImageID;references:ID"`
