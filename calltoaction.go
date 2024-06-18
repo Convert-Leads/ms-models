@@ -9,8 +9,9 @@ type CallToAction struct {
 	Text 			 string `json:"text"`
 	Type       string `json:"type"`
 	ContentID uint   `json:"content_id"`
-	Content   *Content `json:"content"`
+	TargetContentID uint   `json:"target_content_id"`
+	Content   *Content `gorm:"foreignKey:TargetContentID" json:"content"`
 	CollectionID uint   `json:"collection_id"`
-	Collection   *Collection `json:"collection"`
+	Collection   *Collection `gorm:"foreignKey:CollectionID" json:"collection"`
 	URL        string `json:"url"`
 }
