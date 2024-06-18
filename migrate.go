@@ -10,6 +10,7 @@ func Migrate(DB *gorm.DB) error {
         &ContentType{},
         &Organisation{},
         &User{},
+        &CallToAction{},
         &Content{},
         &Collection{},
         &Chapter{},
