@@ -17,7 +17,7 @@ type Content struct {
     Media              *Media     `gorm:"foreignKey:MediaID" json:"media"` 
     ThumbnailID        *uint       
     Thumbnail          *Media     `gorm:"foreignKey:ThumbnailID" json:"thumbnail"` 
-    UserInteractions   []UserInteraction `gorm:"foreignKey:ContentId" json:"user_interactions"` 
+    UserInteractions   []UserInteraction `gorm:"polymorphic:Parent;polymorphicValue:contents" json:"user_interactions"`
     DeltaContent       *DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` 
     CreatedBy          uint       `json:"created_by"`  
     UpdatedBy          uint       `json:"updated_by"`  
