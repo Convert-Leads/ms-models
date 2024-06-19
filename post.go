@@ -13,5 +13,5 @@ type Post struct {
 	GroupId         uint       `json:"group_id"`
 	PostedAt        *time.Time `json:"posted_at"`
 	User            User       `gorm:"foreignKey:CreatedByUserId" json:"user"`
-	Group           Group      `gorm:"foreignKey:GroupId" json:"group"`
+	Group           Groups     `gorm:"foreignKey:GroupId" json:"group"`
 }
