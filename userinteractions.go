@@ -15,5 +15,6 @@ type UserInteraction struct {
     User                User                `gorm:"foreignKey:UserId" json:"user"`
     ParentType   string             `json:"parent_type"`
     ParentId     uint               `json:"parent_id"`
-    ChildInteractions []UserInteraction `gorm:"foreignKey:ParentId,ParentType" json:"child_interactions"`
+    Parent              interface{}         `gorm:"-"` // Ignore this field when migrating schema
+    ChildInteractions   []UserInteraction   `gorm:"polymorphic:Parent;polymorphicValue:user_interactions" json:"child_interactions"`
 }
