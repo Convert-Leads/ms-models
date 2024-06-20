@@ -7,11 +7,13 @@ import (
 
 type UserInteraction struct {
     gorm.Model
-    UserId              uint       `json:"user_id"`
-    ContentId           uint       `json:"content_id"`
-    InteractionType     UserInteractionType `gorm:"foreignKey:InteractionTypeId"`
-    InteractionTypeId   uint       `json:"interaction_type_id"`
-    InteractionDatetime *time.Time `json:"interaction_datetime"`
-    InteractionDetails  string     `json:"interaction_details"`
-    User                *User       `gorm:"foreignKey:UserId" json:"user"` 
+    UserId              uint
+    InteractionTypeId   uint
+    InteractionType     UserInteractionType `gorm:"foreignKey:InteractionTypeId" json:"interaction_type"`
+    InteractionDatetime *time.Time          `json:"interaction_datetime"`
+    InteractionDetails  string              `json:"interaction_details"`
+    User                User                `gorm:"foreignKey:UserId" json:"user"`
+    ParentType          string              `json:"parent_type"`
+    ParentID            uint                `json:"parent_id"`
+    ChildInteractions   []UserInteraction   `gorm:"polymorphic:Parent;" json:"child_interactions"`
 }
