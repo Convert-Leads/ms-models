@@ -18,7 +18,7 @@ type Post struct {
 	Group            Group             `gorm:"foreignKey:GroupId" json:"group"`
 	UserInteractions []UserInteraction `gorm:"polymorphic:Parent;polymorphicValue:posts" json:"user_interactions"`
 	Poll							*Poll              `gorm:"foreignKey:PostId" json:"poll"`
-	Mentions					[]User          `gorm:"polymorphic:Parent;polymorphicValue:posts" json:"mentions"`
+	Mentions					[]User          `gorm:"many2many:post_user_mentions;"" json:"mentions"`
 }
 
 type Poll struct {
