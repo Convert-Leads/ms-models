@@ -10,7 +10,7 @@ type Organisation struct {
 	Description        string               `json:"description"`
 	AppLogo            uint                 `json:"app_logo"`
 	AppName            string               `json:"app_name"`
-	WelcomeScreen      uint                 `json:"welcome_screen"`
+	WelcomeScreen      *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"welcome_screen"`
 	Address            string               `json:"address"`
 	ContactEmail       string               `json:"contact_email"`
 	ContactPhone       string               `json:"contact_phone"`

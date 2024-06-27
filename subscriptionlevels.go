@@ -7,6 +7,8 @@ import (
 type SubscriptionLevel struct {
     gorm.Model
     Name           string             `json:"name"`
+    MediaID        *uint               `json:"media_id"`
+    Media          *Media              `gorm:"polymorphic:Parent;polymorphicValue:subscriptionlevels;foreignKey:MediaID" json:"media"`
     Description    string             `json:"description"`
     PriceOptions   []PriceOption      `json:"price_options" gorm:"foreignKey:SubscriptionLevelId"`
     OrganisationId uint               `json:"organisation_id"`

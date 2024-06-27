@@ -21,4 +21,6 @@ type User struct {
 	Roles             []Role         `json:"roles" gorm:"many2many:user_roles;"`
 	Bookmarks         []UserBookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
 	Groups            []Group        `gorm:"many2many:user_groups;" json:"groups"`
+	Posts             []Post         `gorm:"foreignKey:UserId" json:"posts"`
+	ProfileImage 			*Media         `gorm:"polymorphic:Parent;polymorphicValue:users" json:"profile_image"`
 }

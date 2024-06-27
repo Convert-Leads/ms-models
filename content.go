@@ -14,9 +14,9 @@ type Content struct {
     ExpiryDatetime     *time.Time `json:"expiry_datetime"`
     Pinned             bool       `json:"pinned"`
     MediaID            *uint       
-    Media              *Media     `gorm:"foreignKey:MediaID" json:"media"` 
+    Media              *Media     `gorm:"polymorphic:Parent;polymorphicValue:contents;foreignKey:MediaID" json:"media"` 
     ThumbnailID        *uint       
-    Thumbnail          *Media     `gorm:"foreignKey:ThumbnailID" json:"thumbnail"` 
+    Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:contents;foreignKey:ThumbnailID" json:"thumbnail"` 
     UserInteractions   []UserInteraction `gorm:"polymorphic:Parent;polymorphicValue:contents" json:"user_interactions"`
     DeltaContent       *DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` 
     CreatedBy          uint       `json:"created_by"`  
