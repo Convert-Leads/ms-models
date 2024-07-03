@@ -28,8 +28,7 @@ type NewsletterElement struct {
 	Type           string                       `json:"type"`
 	Data           string                       `json:"data"`
 	Order          int                          `json:"order"`
-	MediaID        *uint                        `json:"media_id"`
-	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements;foreignKey:MediaID" json:"media"`
+	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"media"`
 	Decorations    NewsletterElementDecoration  `json:"decorations" gorm:"foreignKey:NewsletterElementID"`
 	Children       []NewsletterElement          `json:"children" gorm:"foreignKey:ParentID"` // Reference to nested elements
 }
