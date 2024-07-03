@@ -19,6 +19,7 @@ type Content struct {
     Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:contents;foreignKey:ThumbnailID" json:"thumbnail"` 
     UserInteractions   []UserInteraction `gorm:"polymorphic:Parent;polymorphicValue:contents" json:"user_interactions"`
     DeltaContent       *DeltaContent `gorm:"foreignKey:ContentId" json:"delta_content"` 
+    Newsletter         *Newsletter `gorm:"foreignKey:ContentId" json:"newsletter"`
     CreatedBy          uint       `json:"created_by"`  
     UpdatedBy          uint       `json:"updated_by"`  
     Caption            string     `json:"caption"` 

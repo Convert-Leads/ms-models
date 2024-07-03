@@ -7,6 +7,10 @@ import (
 func Migrate(DB *gorm.DB) error {
 	// AutoMigrate provided models
 	if err := DB.AutoMigrate( // enumerate all models here
+		&NewsletterTemplate{},
+		&Newsletter{},
+		&NewsletterElement{},
+		&NewsletterElementDecoration{},
 		&Poll{},
 		&PollOption{},
 		&PollVote{},
