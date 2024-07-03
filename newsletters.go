@@ -34,6 +34,7 @@ type NewsletterElement struct {
 	Children       []NewsletterElement          `json:"children" gorm:"foreignKey:ParentID"` // Reference to nested elements
 }
 
+
 type NewsletterElementDecoration struct {
 	gorm.Model
 	NewsletterElementID uint   `json:"newsletter_element_id"`
