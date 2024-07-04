@@ -41,7 +41,10 @@ type NewsletterElementDecoration struct {
 	FontSize            int    `json:"font_size"`
 	FontWeight          string `json:"font_weight"`
 	FontFamily          string `json:"font_family"`
+	FontColour					string `json:"font_colour"`
 	Alignment           string `json:"alignment"`
 	Padding             string `json:"padding"`
 	Margin              string `json:"margin"`
+	Height              string `json:"height"`
+	Width               string `json:"width"`
 }
