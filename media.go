@@ -2,7 +2,7 @@ package models
 
 
 type Media struct {
-    Qmodel
+    QModel
     OrganisationId uint   `json:"-"`
     Uri            string `json:"uri"`
     ParentType          string              `json:"-"`

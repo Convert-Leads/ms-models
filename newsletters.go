@@ -2,7 +2,7 @@ package models
 
 // NewsletterElement struct
 type NewsletterElement struct {
-	Qmodel
+	QModel
 	ParentID       uint                         `json:"-"`
 	ParentType     string                       `json:"-" gorm:"type:varchar(50);polymorphic:Parent"`
 	Type           string                       `json:"t,omitempty"`
@@ -16,7 +16,7 @@ type NewsletterElement struct {
 
 // NewsletterElementDecoration struct
 type NewsletterElementDecoration struct {
-	Qmodel
+	QModel
 	NewsletterElementID uint   `json:"-"`
 	BgColor             string `json:"bg,omitempty"`
 	FontSize            int    `json:"fs,omitempty"`
