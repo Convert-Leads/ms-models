@@ -6,7 +6,7 @@ import (
 )
 
 type Content struct {
-    gorm.Model
+    models.Model
     OrganisationId     uint             `json:"-"`
     ContentTypeId      uint             `json:"t"`
     ContentType        ContentType      `gorm:"foreignKey:ContentTypeId" json:"ct"`

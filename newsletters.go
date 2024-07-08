@@ -4,52 +4,56 @@ import (
 	"gorm.io/gorm"
 )
 
-type NewsletterTemplate struct {
-	gorm.Model
-	Title       string              `json:"title"`
-	Description string              `json:"description"`
-	ThumbnailID        *uint       
-  Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"thumbnail"` 
-	Elements    []NewsletterElement `json:"elements" gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates"`
-}
 
-type Newsletter struct {
-	gorm.Model
-	OrganisationID uint              `json:"organisation_id"`
-	TemplateID     uint              `json:"template_id"`
-	ContentID      uint              `json:"content_id"`
-	Title          string            `json:"title"`
-	Description    string            `json:"description"`
-	ThumbnailID        *uint       
-  Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"thumbnail"` 
-	Elements       []NewsletterElement `json:"elements" gorm:"polymorphic:Parent;polymorphicValue:Newsletters"`
-}
-
+// NewsletterElement struct
 type NewsletterElement struct {
-	gorm.Model
-	ParentID       uint                         `json:"parent_id"`
-	ParentType     string                       `json:"parent_type" gorm:"type:varchar(50);polymorphic:Parent"`
-	Type           string                       `json:"type"`
-	Data           string                       `json:"data"`
-	Order          int                          `json:"order"`
-	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"media"`
-	Decorations    NewsletterElementDecoration  `json:"decorations" gorm:"foreignKey:NewsletterElementID"`
-	Children       []NewsletterElement          `json:"children" gorm:"foreignKey:ParentID;polymorphicValue:NewsletterElements"` // Reference to nested elements
-	CTA						*CallToAction                `json:"cta" gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements"`
+	models.Qmodel
+	ParentID       uint                         `json:"-"`
+	ParentType     string                       `json:"-" gorm:"type:varchar(50);polymorphic:Parent"`
+	Type           string                       `json:"t,omitempty"`
+	Data           string                       `json:"d,omitempty"`
+	Order          int                          `json:"o,omitempty"`
+	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"m,omitempty"`
+	Decorations    NewsletterElementDecoration  `json:"dec,omitempty" gorm:"foreignKey:NewsletterElementID"`
+	Children       []NewsletterElement          `json:"ch,omitempty" gorm:"foreignKey:ParentID;polymorphicValue:NewsletterElements"`
+	CTA            *CallToAction                `json:"cta,omitempty" gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements"`
 }
 
-
+// NewsletterElementDecoration struct
 type NewsletterElementDecoration struct {
-	gorm.Model
-	NewsletterElementID uint   `json:"newsletter_element_id"`
-	BgColor             string `json:"bg_color"`
-	FontSize            int    `json:"font_size"`
-	FontWeight          string `json:"font_weight"`
-	FontFamily          string `json:"font_family"`
-	FontColour					string `json:"font_colour"`
-	Alignment           string `json:"alignment"`
-	Padding             string `json:"padding"`
-	Margin              string `json:"margin"`
-	Height              string `json:"height"`
-	Width               string `json:"width"`
+	models.Qmodel
+	NewsletterElementID uint   `json:"-"`
+	BgColor             string `json:"bg,omitempty"`
+	FontSize            int    `json:"fs,omitempty"`
+	FontWeight          string `json:"fw,omitempty"`
+	FontFamily          string `json:"ff,omitempty"`
+	FontColour          string `json:"fc,omitempty"`
+	Alignment           string `json:"a,omitempty"`
+	Padding             string `json:"p,omitempty"`
+	Margin              string `json:"m,omitempty"`
+	Height              string `json:"h,omitempty"`
+	Width               string `json:"w,omitempty"`
+}
+
+// NewsletterTemplate struct
+type NewsletterTemplate struct {
+	models.Model
+	Title       string              `json:"t,omitempty"`
+	Description string              `json:"d,omitempty"`
+	ThumbnailID *uint               `json:"-"`
+	Thumbnail   *Media              `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"th,omitempty"`
+	Elements    []NewsletterElement `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates" json:"e,omitempty"`
+}
+
+// Newsletter struct
+type Newsletter struct {
+	models.Model
+	OrganisationID uint                `json:"-"`
+	TemplateID     uint                `json:"t_id,omitempty"`
+	ContentID      uint                `json:"-"`
+	Title          string              `json:"t,omitempty"`
+	Description    string              `json:"d,omitempty"`
+	ThumbnailID    *uint               `json:"-"`
+	Thumbnail      *Media              `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"th,omitempty"`
+	Elements       []NewsletterElement `gorm:"polymorphic:Parent;polymorphicValue:Newsletters" json:"e,omitempty"`
 }

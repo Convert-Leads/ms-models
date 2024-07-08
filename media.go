@@ -5,9 +5,9 @@ import (
 )
 
 type Media struct {
-    gorm.Model
-    OrganisationId uint   `json:"organisation_id"`
+    models.Qmodel
+    OrganisationId uint   `json:"-"`
     Uri            string `json:"uri"`
-    ParentType          string              `json:"parent_type"`
-    ParentID            uint                `json:"parent_id"`
+    ParentType          string              `json:"-"`
+    ParentID            uint                `json:"-"`
 }
