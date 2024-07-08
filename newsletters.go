@@ -1,13 +1,8 @@
 package models
 
-import (
-	"gorm.io/gorm"
-)
-
-
 // NewsletterElement struct
 type NewsletterElement struct {
-	models.Qmodel
+	Qmodel
 	ParentID       uint                         `json:"-"`
 	ParentType     string                       `json:"-" gorm:"type:varchar(50);polymorphic:Parent"`
 	Type           string                       `json:"t,omitempty"`
@@ -21,7 +16,7 @@ type NewsletterElement struct {
 
 // NewsletterElementDecoration struct
 type NewsletterElementDecoration struct {
-	models.Qmodel
+	Qmodel
 	NewsletterElementID uint   `json:"-"`
 	BgColor             string `json:"bg,omitempty"`
 	FontSize            int    `json:"fs,omitempty"`
@@ -37,7 +32,7 @@ type NewsletterElementDecoration struct {
 
 // NewsletterTemplate struct
 type NewsletterTemplate struct {
-	models.Model
+	Model
 	Title       string              `json:"t,omitempty"`
 	Description string              `json:"d,omitempty"`
 	ThumbnailID *uint               `json:"-"`
@@ -47,7 +42,7 @@ type NewsletterTemplate struct {
 
 // Newsletter struct
 type Newsletter struct {
-	models.Model
+	Model
 	OrganisationID uint                `json:"-"`
 	TemplateID     uint                `json:"t_id,omitempty"`
 	ContentID      uint                `json:"-"`

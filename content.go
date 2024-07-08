@@ -1,12 +1,11 @@
 package models
 
 import (
-    "gorm.io/gorm"
     "time"
 )
 
 type Content struct {
-    models.Model
+    Model
     OrganisationId     uint             `json:"-"`
     ContentTypeId      uint             `json:"t"`
     ContentType        ContentType      `gorm:"foreignKey:ContentTypeId" json:"ct"`

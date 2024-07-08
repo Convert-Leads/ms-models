@@ -1,11 +1,8 @@
 package models
 
-import (
-    "gorm.io/gorm"
-)
 
 type Media struct {
-    models.Qmodel
+    Qmodel
     OrganisationId uint   `json:"-"`
     Uri            string `json:"uri"`
     ParentType          string              `json:"-"`
