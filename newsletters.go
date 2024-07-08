@@ -35,7 +35,7 @@ type NewsletterElement struct {
 	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"media"`
 	Decorations    NewsletterElementDecoration  `json:"decorations" gorm:"foreignKey:NewsletterElementID"`
 	Children       []NewsletterElement          `json:"children" gorm:"foreignKey:ParentID;polymorphicValue:NewsletterElements"` // Reference to nested elements
-	CTA						*CallToAction                `json:"cta"`
+	CTA						*CallToAction                `json:"cta" gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements"`
 }
 
 

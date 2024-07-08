@@ -8,7 +8,8 @@ type CallToAction struct {
 	gorm.Model
 	Text 			 string `json:"text"`
 	Type       string `json:"type"`
-	ContentID uint   `json:"content_id"`
+	ParentID uint   `json:"parent_id"`
+	ParentType string `json:"parent_type"`
 	TargetContentID *uint   `json:"target_content_id"`
 	Content   *Content `gorm:"foreignKey:TargetContentID" json:"content"`
 	CollectionID *uint   `json:"collection_id"`
