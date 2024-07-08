@@ -8,6 +8,8 @@ type NewsletterTemplate struct {
 	gorm.Model
 	Title       string              `json:"title"`
 	Description string              `json:"description"`
+	ThumbnailID        *uint       
+  Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"thumbnail"` 
 	Elements    []NewsletterElement `json:"elements" gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates"`
 }
 
@@ -18,6 +20,8 @@ type Newsletter struct {
 	ContentID      uint              `json:"content_id"`
 	Title          string            `json:"title"`
 	Description    string            `json:"description"`
+	ThumbnailID        *uint       
+  Thumbnail          *Media     `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"thumbnail"` 
 	Elements       []NewsletterElement `json:"elements" gorm:"polymorphic:Parent;polymorphicValue:Newsletters"`
 }
 
@@ -31,6 +35,7 @@ type NewsletterElement struct {
 	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"media"`
 	Decorations    NewsletterElementDecoration  `json:"decorations" gorm:"foreignKey:NewsletterElementID"`
 	Children       []NewsletterElement          `json:"children" gorm:"foreignKey:ParentID;polymorphicValue:NewsletterElements"` // Reference to nested elements
+	CTA						*CallToAction                `json:"cta"`
 }
 
 
