@@ -5,7 +5,7 @@ import (
 )
 
 type ContentType struct {
-    gorm.Model
+    QModel
     Name           string `json:"name"`
     Description    string `json:"description"`
 }

@@ -1,18 +1,14 @@
 package models
 
-import (
-    "gorm.io/gorm"
-)
-
 type CallToAction struct {
-	gorm.Model
-	Text 			 string `json:"text"`
-	Type       string `json:"type"`
-	ParentID uint   `json:"parent_id"`
-	ParentType string `json:"parent_type"`
-	TargetContentID *uint   `json:"target_content_id"`
-	Content   *Content `gorm:"foreignKey:TargetContentID" json:"content"`
-	CollectionID *uint   `json:"collection_id"`
-	Collection   *Collection `gorm:"foreignKey:CollectionID" json:"collection"`
-	URL        string `json:"url"`
+	QModel
+	Text            string     `json:"t,omitempty"`
+	Type            string     `json:"tp,omitempty"`
+	ParentID        uint       `json:"pid,omitempty"`
+	ParentType      string     `json:"pt,omitempty"`
+	TargetContentID *uint      `json:"tcid,omitempty"`
+	Content         *Content   `gorm:"foreignKey:TargetContentID" json:"cnt,omitempty"`
+	CollectionID    *uint      `json:"cid,omitempty"`
+	Collection      *Collection `gorm:"foreignKey:CollectionID" json:"clc,omitempty"`
+	URL             string     `json:"url,omitempty"`
 }

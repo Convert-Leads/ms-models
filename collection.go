@@ -1,40 +1,35 @@
 package models
 
-import (
-    "gorm.io/gorm"
-)
-
 // Collection represents a group of chapters, like a book or a course.
 type Collection struct {
-	gorm.Model
-	OrganisationID uint      `json:"organisationId"` // Foreign Key
-	Title       string    `json:"title"`
-	Type				string    `json:"type"`
-	Description string    `json:"description"`
-	ImageID		 *uint      `json:"imageId"` // Foreign Key
-	Image			 *Media		 `json:"image" gorm:"polymorphic:Parent;polymorphicValue:collections;foreignKey:ImageID;references:ID"`
-	Chapters    []Chapter `json:"chapters" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
+	QModel
+	OrganisationID uint      `json:"oid,omitempty"` // Foreign Key
+	Title          string    `json:"t,omitempty"`
+	Type           string    `json:"tp,omitempty"`
+	Description    string    `json:"d,omitempty"`
+	ImageID        *uint     `json:"iid,omitempty"` // Foreign Key
+	Image          *Media    `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections;foreignKey:ImageID;references:ID"`
+	Chapters       []Chapter `json:"ch,omitempty" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
 }
 
 // Chapter represents individual chapters, sections, or units within a collection.
 type Chapter struct {
-	gorm.Model
-	CollectionID      uint      `json:"collectionId"` // Foreign Key
-	Title             string    `json:"title"`
-	Description       string    `json:"description"`
-	ImageID		 *uint      `json:"imageId"` // Foreign Key
-	Image			 *Media		 `json:"image" gorm:"polymorphic:Parent;polymorphicValue:chapters;foreignKey:ImageID;references:ID"`
-	OrderInCollection int       `json:"orderInCollection"`
-	Contents          []ChapterContent `json:"contents" gorm:"foreignKey:ChapterID;references:ID"` // Explicit one-to-many relationship
+	QModel
+	CollectionID      uint             `json:"cid,omitempty"` // Foreign Key
+	Title             string           `json:"t,omitempty"`
+	Description       string           `json:"d,omitempty"`
+	ImageID           *uint            `json:"iid,omitempty"` // Foreign Key
+	Image             *Media           `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chapters;foreignKey:ImageID;references:ID"`
+	OrderInCollection int              `json:"oic,omitempty"`
+	Contents          []ChapterContent `json:"c,omitempty" gorm:"foreignKey:ChapterID;references:ID"` // Explicit one-to-many relationship
 }
 
-// Content represents the actual content or items within each chapter.
+// ChapterContent represents the actual content or items within each chapter.
 type ChapterContent struct {
-	gorm.Model
-	ChapterID      uint   `json:"chapterId"` // Foreign Key
-	Title          string `json:"title"`
-	ContentId		uint   `json:"contentId"`
-	Content			 Content `json:"content" gorm:"foreignKey:ContentId;references:ID"` 
-	OrderInChapter int    `json:"orderInChapter"`
+	QModel
+	ChapterID      uint    `json:"cid,omitempty"` // Foreign Key
+	Title          string  `json:"t,omitempty"`
+	ContentId      uint    `json:"ctid,omitempty"`
+	Content        Content `json:"cnt,omitempty" gorm:"foreignKey:ContentId;references:ID"` 
+	OrderInChapter int     `json:"oic,omitempty"`
 }
-

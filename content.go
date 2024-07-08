@@ -8,7 +8,7 @@ type Content struct {
     Model
     OrganisationId     uint             `json:"-"`
     ContentTypeId      uint             `json:"t"`
-    ContentType        ContentType      `gorm:"foreignKey:ContentTypeId" json:"ct"`
+    ContentType        ContentType      `gorm:"foreignKey:ContentTypeId" json:"ct,omitempty"`
     AvailableDatetime  *time.Time       `json:"ad,omitempty"`
     ExpiryDatetime     *time.Time       `json:"ed,omitempty"`
     Pinned             bool             `json:"p"`
