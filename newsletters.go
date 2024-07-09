@@ -35,8 +35,7 @@ type NewsletterTemplate struct {
 	Model
 	Title       string              `json:"t,omitempty"`
 	Description string              `json:"d,omitempty"`
-	ThumbnailID *uint               `json:"-"`
-	Thumbnail   *Media              `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates;foreignKey:ThumbnailID" json:"th,omitempty"`
+	Thumbnail   *Media              `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates" json:"th,omitempty"`
 	Elements    []NewsletterElement `gorm:"polymorphic:Parent;polymorphicValue:NewsletterTemplates" json:"e,omitempty"`
 }
 
