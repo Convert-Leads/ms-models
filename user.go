@@ -22,5 +22,5 @@ type User struct {
 	Bookmarks         []UserBookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
 	Groups            []Group        `gorm:"many2many:user_groups;" json:"groups"`
 	Posts             []Post         `gorm:"foreignKey:UserId" json:"posts"`
-	ProfileImage      *Media         `gorm:"polymorphic:Parent;polymorphicValue:users" json:"profile_image"`
+	ProfileImage      string         `json:"profile_image"`
 }
