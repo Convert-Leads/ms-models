@@ -17,7 +17,7 @@ type User struct {
 	Contact_youtube   string         `json:"contact_youtube"`
 	Contact_instagram string         `json:"contact_instagram"`
 	Contact_linkedin  string         `json:"contact_linkedin"`
-	Registered        bool           `json:"registered"`
+	Registered        bool           `json:"registered" gorm:"default:false"`
 	Roles             []Role         `json:"roles" gorm:"many2many:user_roles;"`
 	Bookmarks         []UserBookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
 	Groups            []Group        `gorm:"many2many:user_groups;" json:"groups"`
