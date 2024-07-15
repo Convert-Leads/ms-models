@@ -40,6 +40,7 @@ func Migrate(DB *gorm.DB) error {
 		&Newsletter{},
 		&NewsletterElement{},
 		&NewsletterElementDecoration{},
+		&ContentInteraction{},
 	); err != nil {
 		return err
 	}

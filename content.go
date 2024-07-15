@@ -28,4 +28,5 @@ type Content struct {
     Liked              bool             `json:"l" gorm:"-"`
     Bookmarked         bool             `json:"b" gorm:"-"`
     CommentCount       int              `json:"cc" gorm:"-"`
+    ContentInteraction          []ContentInteraction    `json:"ci,omitempty" gorm:"polymorphic:Parent;polymorphicValue:contents"`
 }

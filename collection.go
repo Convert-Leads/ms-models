@@ -31,4 +31,5 @@ type ChapterContent struct {
 	ContentId      uint    `json:"ctid,omitempty"`
 	Content        Content `json:"cnt,omitempty" gorm:"foreignKey:ContentId;references:ID"` 
 	OrderInChapter int     `json:"oic,omitempty"`
+	ContentInteraction          []ContentInteraction    `json:"ci,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chaptercontents"`
 }
