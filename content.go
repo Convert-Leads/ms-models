@@ -24,9 +24,11 @@ type Content struct {
     CTA                *CallToAction    `json:"cta,omitempty" gorm:"polymorphic:Parent;polymorphicValue:contents"`
     Tags               []MetadataTag    `gorm:"many2many:content_tags;" json:"tags,omitempty"`
     AllowedUsers       []User           `gorm:"many2many:content_allowed_users;" json:"au,omitempty"`
+    ContentInteraction          []ContentInteraction    `json:"-" gorm:"polymorphic:Parent;polymorphicValue:contents"` 
     LikeCount          int              `json:"lc" gorm:"-"`
     Liked              bool             `json:"l" gorm:"-"`
     Bookmarked         bool             `json:"b" gorm:"-"`
     CommentCount       int              `json:"cc" gorm:"-"`
-    ContentInteraction          []ContentInteraction    `json:"ci,omitempty" gorm:"polymorphic:Parent;polymorphicValue:contents"` 
+    WatchCount         int              `json:"wc" gorm:"-"`
+    
 }
