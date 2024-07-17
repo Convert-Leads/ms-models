@@ -5,21 +5,21 @@ import (
 )
 
 type Organisation struct {
-	gorm.Model
-	Name               string               `json:"name"`
-	Description        string               `json:"description"`
-	AppLogo            uint                 `json:"app_logo"`
-	AppName            string               `json:"app_name"`
-	WelcomeScreen      *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"welcome_screen"`
-	Address            string               `json:"address"`
-	ContactEmail       string               `json:"contact_email"`
-	ContactPhone       string               `json:"contact_phone"`
+	QModel
+	Name               string               `json:"n,omitempty"`
+	Description        string               `json:"d,omitempty"`
+	AppLogo            uint                 `json:"al,omitempty"`
+	AppName            string               `json:"an,omitempty"`
+	WelcomeScreen      *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"ws,omitempty"`
+	Address            string               `json:"a,omitempty"`
+	ContactEmail       string               `json:"ce,omitempty"`
+	ContactPhone       string               `json:"cp,omitempty"`
 	StripeApiKey       string               `json:"-"`
-	StripeDetails      []StripeDetail       `json:"stripe_details" gorm:"foreignKey:OrganisationId"`
-	Payments           []PaymentTransaction `json:"payments" gorm:"foreignKey:OrganisationId"`
-	SubscriptionLevels []SubscriptionLevel  `json:"subscription_levels" gorm:"foreignKey:OrganisationId"`
-	Users              []User               `json:"users" gorm:"foreignKey:OrganisationId"`
-	Groups             []Group              `json:"groups" gorm:"foreignKey:OrganisationId"`
-	Content            []Content            `json:"content" gorm:"foreignKey:OrganisationId"`
-	Tags               []MetadataTag        `json:"tags" gorm:"foreignKey:OrganisationId"`
+	StripeDetails      []StripeDetail       `json:"sd,omitempty" gorm:"foreignKey:OrganisationId"`
+	Payments           []PaymentTransaction `json:"p,omitempty" gorm:"foreignKey:OrganisationId"`
+	SubscriptionLevels []SubscriptionLevel  `json:"sl,omitempty" gorm:"foreignKey:OrganisationId"`
+	Users              []User               `json:"u,omitempty" gorm:"foreignKey:OrganisationId"`
+	Groups             []Group              `json:"g,omitempty" gorm:"foreignKey:OrganisationId"`
+	Content            []Content            `json:"c,omitempty" gorm:"foreignKey:OrganisationId"`
+	Tags               []MetadataTag        `json:"t,omitempty" gorm:"foreignKey:OrganisationId"`
 }

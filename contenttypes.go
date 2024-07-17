@@ -2,6 +2,6 @@ package models
 
 type ContentType struct {
     QModel
-    Name           string `json:"name"`
-    Description    string `json:"description"`
+    Name           string `json:"n"`
+    Description    string `json:"-"`
 }
