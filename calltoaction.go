@@ -11,4 +11,5 @@ type CallToAction struct {
 	CollectionID    *uint      `json:"cid,omitempty"`
 	Collection      *Collection `gorm:"foreignKey:CollectionID" json:"clc,omitempty"`
 	URL             string     `json:"url,omitempty"`
+	ContentInteraction          []ContentInteraction    `json:"ci,omitempty" gorm:"polymorphic:Parent;polymorphicValue:callstoaction"`
 }

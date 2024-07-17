@@ -6,21 +6,22 @@ import (
 
 type User struct {
 	gorm.Model
-	OrganisationId    uint           `json:"organisation_id"`
-	First_name        string         `json:"first_name"`
-	Last_name         string         `json:"last_name"`
-	Contact_address   string         `json:"contact_address"`
-	Contact_phone     string         `json:"contact_phone"`
-	Contact_email     string         `json:"contact_email"`
-	Contact_twitter   string         `json:"contact_twitter"`
-	Contact_facebook  string         `json:"contact_facebook"`
-	Contact_youtube   string         `json:"contact_youtube"`
-	Contact_instagram string         `json:"contact_instagram"`
-	Contact_linkedin  string         `json:"contact_linkedin"`
-	Registered        bool           `json:"registered" gorm:"default:false"`
-	Roles             []Role         `json:"roles" gorm:"many2many:user_roles;"`
-	Bookmarks         []UserBookmark `json:"bookmarks" gorm:"one2many:user_bookmarks;"`
-	Groups            []Group        `gorm:"many2many:user_groups;" json:"groups"`
-	Posts             []Post         `gorm:"foreignKey:UserId" json:"posts"`
-	ProfileImage      string         `json:"profile_image"`
+	OrganisationId    uint           `json:"o,omitempty"`
+	FirstName         string         `json:"fn,omitempty"`
+	LastName          string         `json:"ln,omitempty"`
+	ContactAddress    string         `json:"ca,omitempty"`
+	ContactPhone      string         `json:"cp,omitempty"`
+	ContactEmail      string         `json:"ce,omitempty"`
+	ContactTwitter    string         `json:"ct,omitempty"`
+	ContactFacebook   string         `json:"cf,omitempty"`
+	ContactYoutube    string         `json:"cy,omitempty"`
+	ContactInstagram  string         `json:"ci,omitempty"`
+	ContactLinkedin   string         `json:"cl,omitempty"`
+	Registered        bool           `json:"r,omitempty" gorm:"default:false"`
+	Roles             []Role         `json:"ro,omitempty" gorm:"many2many:user_roles;"`
+	Bookmarks         []UserBookmark `json:"b,omitempty" gorm:"one2many:user_bookmarks;"`
+	Groups            []Group        `json:"g,omitempty" gorm:"many2many:user_groups;"`
+	Posts             []Post         `json:"p,omitempty" gorm:"foreignKey:UserId"`
+	ProfileImage      string         `json:"pi,omitempty"`
+	contentInteractions []ContentInteraction `json:"int,omitempty" gorm:"foreignkey:UserId"`
 }

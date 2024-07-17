@@ -28,7 +28,6 @@ func Migrate(DB *gorm.DB) error {
 		&PriceOption{},
 		&UserSubscription{},
 		&UserBookmark{},
-		&DeltaContent{},
 		&StripeDetail{},
 		&PaymentTransaction{},
 		&UserRole{},
@@ -40,6 +39,7 @@ func Migrate(DB *gorm.DB) error {
 		&Newsletter{},
 		&NewsletterElement{},
 		&NewsletterElementDecoration{},
+		&ContentInteraction{},
 	); err != nil {
 		return err
 	}

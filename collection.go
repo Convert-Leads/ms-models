@@ -7,8 +7,7 @@ type Collection struct {
 	Title          string    `json:"t,omitempty"`
 	Type           string    `json:"tp,omitempty"`
 	Description    string    `json:"d,omitempty"`
-	ImageID        *uint     `json:"iid,omitempty"` // Foreign Key
-	Image          *Media    `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections;foreignKey:ImageID;references:ID"`
+	Image          *Media    `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections"`
 	Chapters       []Chapter `json:"ch,omitempty" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
 }
 
@@ -32,4 +31,5 @@ type ChapterContent struct {
 	ContentId      uint    `json:"ctid,omitempty"`
 	Content        Content `json:"cnt,omitempty" gorm:"foreignKey:ContentId;references:ID"` 
 	OrderInChapter int     `json:"oic,omitempty"`
+	ContentInteraction          []ContentInteraction    `json:"ci,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chaptercontents"`
 }
