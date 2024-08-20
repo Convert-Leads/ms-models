@@ -44,6 +44,7 @@ type CommentRequest struct {
 type CommentResponse struct {
 	ID          uint              `json:"i"`
 	UserName    string            `json:"un"`
+	UserId      string            `json:"uid"`
 	UserProfile string            `json:"up"`
 	Comment     string            `json:"c"`
 	Timestamp   time.Time         `json:"t"`
