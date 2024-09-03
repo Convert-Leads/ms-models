@@ -24,4 +24,5 @@ type User struct {
 	Posts               []Post               `json:"p,omitempty" gorm:"foreignKey:UserId"`
 	ProfileImage        string               `json:"pi,omitempty"`
 	contentInteractions []ContentInteraction `json:"int,omitempty" gorm:"foreignkey:UserId"`
+	UserSubscription    []UserSubscription   `json:"subs,omitempty" gorm:"foreignkey:UserId"`
 }
