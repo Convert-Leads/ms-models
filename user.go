@@ -25,4 +25,5 @@ type User struct {
 	ProfileImage        string               `json:"pi,omitempty"`
 	contentInteractions []ContentInteraction `json:"int,omitempty" gorm:"foreignkey:UserId"`
 	UserSubscription    []UserSubscription   `json:"subs,omitempty" gorm:"foreignkey:UserId"`
+	FCMToken            string               `json:"-"`
 }
