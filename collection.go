@@ -1,12 +1,8 @@
 package models
 
-import (
-	"time"
-)
-
 // Collection represents a group of chapters, like a book or a course.
 type Collection struct {
-	QModel
+	Model
 	OrganisationID uint                    `json:"oid,omitempty"` // Foreign Key
 	Title          string                  `json:"t,omitempty"`
 	Type           string                  `json:"tp,omitempty"`
@@ -16,7 +12,6 @@ type Collection struct {
 	Interactions   []CollectionInteraction `json:"int" gorm:"foreignKey:ParentID;constraint:OnDelete:CASCADE;"` // Related interactions
 	Image          *Media                  `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections"`
 	Chapters       []Chapter               `json:"ch,omitempty" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
-	CreatedAt      time.Time               `json:"CreatedAt" gorm:"column:created_at"`                        // Override the QModel's CreatedAt
 }
 
 // Chapter represents individual chapters, sections, or units within a collection.
