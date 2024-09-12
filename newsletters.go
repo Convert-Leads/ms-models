@@ -6,7 +6,7 @@ type NewsletterElement struct {
 	ParentID       uint                         `json:"-"`
 	ParentType     string                       `json:"-" gorm:"type:varchar(50);polymorphic:Parent"`
 	Type           string                       `json:"t,omitempty"`
-	Data           string                       `json:"d,omitempty"`
+	Data           string                       `json:"d,omitempty" gorm:"type:text"`
 	Order          int                          `json:"o,omitempty"`
 	Media          *Media                       `gorm:"polymorphic:Parent;polymorphicValue:NewsletterElements" json:"m,omitempty"`
 	Decorations    NewsletterElementDecoration  `json:"dec,omitempty" gorm:"foreignKey:NewsletterElementID"`
