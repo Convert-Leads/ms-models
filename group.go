@@ -18,4 +18,5 @@ type Group struct {
 	InviteOnly     bool          `json:"invite_only"`
 	MembersCount   int           `json:"members_count" gorm:"-"`
 	PostsCount     int           `json:"posts_count" gorm:"-"`
+	IsMembersVisible  bool          `json:"is_members_visible"` // Add this line
 }
