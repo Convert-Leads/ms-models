@@ -25,7 +25,8 @@ type Content struct {
 	Tags               []MetadataTag        `gorm:"many2many:content_tags;" json:"tags,omitempty"`
 	AllowedUsers       []User               `gorm:"many2many:content_allowed_users;" json:"au,omitempty"`
 	ContentInteraction []ContentInteraction `json:"-" gorm:"polymorphic:Parent;polymorphicValue:contents"`
-	LikeCount          int                  `json:"lc" gorm:"-"`
+	Runtime            int                  `json:"r,omitempty"`
+    LikeCount          int                  `json:"lc" gorm:"-"`
 	Liked              bool                 `json:"l" gorm:"-"`
 	Bookmarked         bool                 `json:"b" gorm:"-"`
 	CommentCount       int                  `json:"cc" gorm:"-"`
