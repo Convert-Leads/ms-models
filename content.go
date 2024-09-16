@@ -6,15 +6,13 @@ import (
 
 type Content struct {
 	Model
-	OrganisationId    uint        `json:"-"`
-	ContentTypeId     uint        `json:"t"`
-	ContentType       ContentType `gorm:"foreignKey:ContentTypeId" json:"ct,omitempty"`
-	AvailableDatetime *time.Time  `json:"ad,omitempty"`
-	ExpiryDatetime    *time.Time  `json:"ed,omitempty"`
-	Pinned            bool        `json:"p"`
-	// MediaID            *uint            `json:"-"`
-	Media *Media `gorm:"polymorphic:Parent;polymorphicValue:contentmedia" json:"m,omitempty"`
-	// ThumbnailID        *uint            `json:"-"`
+	OrganisationId     uint                 `json:"-"`
+	ContentTypeId      uint                 `json:"t"`
+	ContentType        ContentType          `gorm:"foreignKey:ContentTypeId" json:"ct,omitempty"`
+	AvailableDatetime  *time.Time           `json:"ad,omitempty"`
+	ExpiryDatetime     *time.Time           `json:"ed,omitempty"`
+	Pinned             bool                 `json:"p"`
+	Media              *Media               `gorm:"polymorphic:Parent;polymorphicValue:contentmedia" json:"m,omitempty"`
 	Thumbnail          *Media               `gorm:"polymorphic:Parent;polymorphicValue:contentthumbnail" json:"th,omitempty"`
 	UserInteractions   []UserInteraction    `gorm:"polymorphic:Parent;polymorphicValue:contents" json:"ui,omitempty"`
 	Newsletter         *Newsletter          `gorm:"foreignKey:ContentID;constraint:OnDelete:CASCADE" json:"nl,omitempty"`
@@ -31,4 +29,5 @@ type Content struct {
 	CommentCount       int                  `json:"cc" gorm:"-"`
 	WatchCount         int                  `json:"wc" gorm:"-"`
 	HasAccess          bool                 `json:"ha" gorm:"-"`
+	Runtime            *int                 `json:"r,omitempty" gorm:"default:null"` // Change to pointer type
 }
