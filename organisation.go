@@ -1,6 +1,5 @@
 package models
 
-
 type Organisation struct {
 	QModel
 	Name               string               `json:"n,omitempty"`
@@ -19,4 +18,5 @@ type Organisation struct {
 	Groups             []Group              `json:"g,omitempty" gorm:"foreignKey:OrganisationId"`
 	Content            []Content            `json:"c,omitempty" gorm:"foreignKey:OrganisationId"`
 	Tags               []MetadataTag        `json:"t,omitempty" gorm:"foreignKey:OrganisationId"`
+	HideCounts         bool                 `json:"hc,omitempty"`
 }
