@@ -24,11 +24,11 @@ type Content struct {
 	AllowedUsers       []User               `gorm:"many2many:content_allowed_users;" json:"au,omitempty"`
 	ContentInteraction []ContentInteraction `json:"-" gorm:"polymorphic:Parent;polymorphicValue:contents"`
 	Runtime            int                  `json:"r,omitempty"`
-    LikeCount          int                  `json:"lc" gorm:"-"`
+	LikeCount          int                  `json:"lc" gorm:"-"`
 	Liked              bool                 `json:"l" gorm:"-"`
 	Bookmarked         bool                 `json:"b" gorm:"-"`
 	CommentCount       int                  `json:"cc" gorm:"-"`
 	WatchCount         int                  `json:"wc" gorm:"-"`
 	HasAccess          bool                 `json:"ha" gorm:"-"`
-	Runtime            *int                 `json:"r,omitempty" gorm:"default:null"` // Change to pointer type
+	WatchTime          int                  `json:"wt,omitempty" gorm:"-"` // Change to pointer type
 }
