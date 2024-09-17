@@ -19,4 +19,5 @@ type Organisation struct {
 	Content            []Content            `json:"c,omitempty" gorm:"foreignKey:OrganisationId"`
 	Tags               []MetadataTag        `json:"t,omitempty" gorm:"foreignKey:OrganisationId"`
 	HideCounts         bool                 `json:"hc,omitempty"`
+	APIKeys            []OrganisationAPIKey `json:"ak,omitempty" gorm:"foreignKey:OrganisationID"`
 }

@@ -41,6 +41,7 @@ func Migrate(DB *gorm.DB) error {
 		&NewsletterElementDecoration{},
 		&ContentInteraction{},
 		&CollectionInteraction{},
+		&OrganisationAPIKey{},
 	); err != nil {
 		return err
 	}
