@@ -5,6 +5,7 @@ type Organisation struct {
 	Name               string               `json:"n,omitempty"`
 	Description        string               `json:"d,omitempty"`
 	AppLogo            string               `json:"al,omitempty"`
+	AppLogoMedia       *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"alm,omitempty"`
 	AppName            string               `json:"an,omitempty"`
 	WelcomeScreen      *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"ws,omitempty"`
 	Address            string               `json:"a,omitempty"`
