@@ -12,6 +12,7 @@ type Collection struct {
 	Interactions   []CollectionInteraction `json:"int" gorm:"foreignKey:ParentID;constraint:OnDelete:CASCADE;"` // Related interactions
 	Image          *Media                  `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections"`
 	Chapters       []Chapter               `json:"ch,omitempty" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
+	Files          []Content               `json:"f,omitempty" gorm:"many2many:collection_files;"`            // Changed from ExtraFiles to Files and json tag from "ef" to "f"
 }
 
 // Chapter represents individual chapters, sections, or units within a collection.
