@@ -21,8 +21,7 @@ type Chapter struct {
 	CollectionID      uint             `json:"cid,omitempty"` // Foreign Key
 	Title             string           `json:"t,omitempty"`
 	Description       string           `json:"d,omitempty"`
-	ImageID           *uint            `json:"iid,omitempty"` // Foreign Key
-	Image             *Media           `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chapters;foreignKey:ImageID;references:ID"`
+	Image             *Media           `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chapters"`
 	OrderInCollection int              `json:"oic,omitempty"`
 	Contents          []ChapterContent `json:"c,omitempty" gorm:"foreignKey:ChapterID;references:ID"` // Explicit one-to-many relationship
 }
