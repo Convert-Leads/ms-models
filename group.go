@@ -10,7 +10,7 @@ type Group struct {
 	Name             string `json:"name"`
 	BannerID         *uint
 	Banner           *Media        `gorm:"polymorphic:Parent;" json:"banner"`
-	Description      string        `json:"description"`
+	Description      string        `json:"description" gorm:"type:text"`
 	Tags             []MetadataTag `gorm:"many2many:group_tags;" json:"tags"`
 	AllowedUsers     []User        `gorm:"many2many:group_allowed_users;" json:"allowed_users"`
 	Members          []User        `gorm:"many2many:group_members;" json:"members"`

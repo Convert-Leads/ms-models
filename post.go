@@ -8,7 +8,7 @@ import (
 
 type Post struct {
 	gorm.Model
-	Caption           string            `json:"caption"`
+	Caption           string            `json:"caption" gorm:"type:text"`
 	AvailableDatetime *time.Time        `json:"available_datetime"`
 	ExpiryDatetime    *time.Time        `json:"expiry_datetime"`
 	Pinned            bool              `json:"pinned"` // max 3
@@ -28,7 +28,7 @@ type Post struct {
 
 type Poll struct {
 	gorm.Model
-	Question string       `json:"question"`
+	Question string       `json:"question" gorm:"type:text"`
 	PostId   uint         `json:"post_id"`
 	Post     Post         `gorm:"foreignKey:PostId" json:"post"`
 	Options  []PollOption `json:"options"`

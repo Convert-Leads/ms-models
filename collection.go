@@ -6,7 +6,7 @@ type Collection struct {
 	OrganisationID uint                    `json:"oid,omitempty"` // Foreign Key
 	Title          string                  `json:"t,omitempty"`
 	Type           string                  `json:"tp,omitempty"`
-	Description    string                  `json:"d,omitempty"`
+	Description    string                  `json:"d,omitempty" gorm:"type:text"`
 	LikeCount      uint                    `json:"lc"`                                                          // New field
 	ViewCount      uint                    `json:"vc"`                                                          // New field for view count
 	Interactions   []CollectionInteraction `json:"int" gorm:"foreignKey:ParentID;constraint:OnDelete:CASCADE;"` // Related interactions
@@ -20,7 +20,7 @@ type Chapter struct {
 	QModel
 	CollectionID      uint             `json:"cid,omitempty"` // Foreign Key
 	Title             string           `json:"t,omitempty"`
-	Description       string           `json:"d,omitempty"`
+	Description       string           `json:"d,omitempty" gorm:"type:text"`
 	Image             *Media           `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:chapters"`
 	OrderInCollection int              `json:"oic,omitempty"`
 	Files             []Content        `json:"f,omitempty" gorm:"many2many:chapter_files;"`           // Add this line
