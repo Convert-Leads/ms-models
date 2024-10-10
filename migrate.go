@@ -42,6 +42,8 @@ func Migrate(DB *gorm.DB) error {
 		&ContentInteraction{},
 		&CollectionInteraction{},
 		&OrganisationAPIKey{},
+		&Branding{},
+		&Media{},
 	); err != nil {
 		return err
 	}
