@@ -9,5 +9,6 @@ type Media struct {
 	ParentType     string `json:"parentType"`
 	ParentID       uint   `json:"parentId"`
 	MimeType       string `json:"mimeType"`
-	Transcoded     bool   `json:"transcoded"`
+	Transcoded     bool   `json:"-"`
+	Transcribed    bool   `json:"-"`
 }
