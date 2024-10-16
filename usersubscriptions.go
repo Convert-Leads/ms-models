@@ -19,7 +19,7 @@ type UserSubscription struct {
 
 type StripeSubscription struct {
     QModel
-    SubscriptionId     string          `json:"subscription_id"`
+    SubscriptionId     uint          `json:"subscription_id"`
     Status             string          `json:"status"`
     CurrentPeriodEnd   time.Time       `json:"current_period_end"`
     CurrentPeriodStart time.Time       `json:"current_period_start"`
@@ -29,7 +29,7 @@ type StripeSubscription struct {
 
 type StripePayment struct {
     QModel
-    SubscriptionId string    `json:"subscription_id"`
+    SubscriptionId uint    `json:"subscription_id"`
     Amount         int       `json:"amount"`
     Currency       string    `json:"currency"`
     Status         string    `json:"status"`
