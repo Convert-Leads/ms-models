@@ -19,19 +19,19 @@ type UserSubscription struct {
 
 type StripeSubscription struct {
     QModel
-    SubscriptionId string `json:"subscription_id"`
-    Status string `json:"status"`
-    CurrentPeriodEnd time.Time `json:"current_period_end"`
-    CurrentPeriodStart time.Time `json:"current_period_start"`
-    CustomerId string `json:"customer_id"`
-    Payments []StripePayment `json:"payments"`
+    SubscriptionId     string          `json:"subscription_id"`
+    Status             string          `json:"status"`
+    CurrentPeriodEnd   time.Time       `json:"current_period_end"`
+    CurrentPeriodStart time.Time       `json:"current_period_start"`
+    CustomerId         string          `json:"customer_id"`
+    Payments           []StripePayment `gorm:"foreignKey:SubscriptionId;references:SubscriptionId" json:"payments"`
 }
 
 type StripePayment struct {
     QModel
-    SubscriptionId string `json:"subscription_id"`
-    Amount int `json:"amount"`
-    Currency string `json:"currency"`
-    Status string `json:"status"`
-    Timestamp time.Time `json:"timestamp"`
+    SubscriptionId string    `json:"subscription_id"`
+    Amount         int       `json:"amount"`
+    Currency       string    `json:"currency"`
+    Status         string    `json:"status"`
+    Timestamp      time.Time `json:"timestamp"`
 }
