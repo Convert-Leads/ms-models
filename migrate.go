@@ -48,7 +48,6 @@ func Migrate(DB *gorm.DB) error {
 		&Media{},
 		&OrgStripeKey{},
 		&OrgStripeWebhook{},
-		&Str
 	); err != nil {
 		return err
 	}
