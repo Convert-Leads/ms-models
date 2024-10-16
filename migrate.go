@@ -7,6 +7,8 @@ import (
 func Migrate(DB *gorm.DB) error {
 	// AutoMigrate provided models
 	if err := DB.AutoMigrate( // enumerate all models here
+		&StripeSubscription{},
+		&StripePayment{},
 		&Poll{},
 		&PollOption{},
 		&PollVote{},
@@ -44,6 +46,9 @@ func Migrate(DB *gorm.DB) error {
 		&OrganisationAPIKey{},
 		&Branding{},
 		&Media{},
+		&OrgStripeKey{},
+		&OrgStripeWebhook{},
+		&Str
 	); err != nil {
 		return err
 	}
