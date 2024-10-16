@@ -12,4 +12,5 @@ type PriceOption struct {
 	Duration            int     `json:"duration"`
 	DurationUnit        string  `json:"duration_unit"`
 	Active              bool    `json:"active"`
+	StripePriceID       string  `json:"stripe_price_id"`
 }

@@ -17,4 +17,5 @@ type SubscriptionLevel struct {
 	Subscribers         []UserSubscription `json:"subscribers" gorm:"foreignKey:SubscriptionLevelId"`
 	SubscriberCount     int                `gorm:"-" json:"subscriber_count"`
 	Active              bool               `json:"active" gorm:"default:true"`
+	StripeProductID     string             `json:"stripe_product_id"`
 }
