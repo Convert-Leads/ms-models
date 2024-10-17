@@ -1,12 +1,13 @@
 package models
 
 import (
+	"log"
+
 	"gorm.io/gorm"
 )
 
 func Migrate(DB *gorm.DB) error {
-	// AutoMigrate provided models
-	if err := DB.AutoMigrate( // enumerate all models here
+	models := []interface{}{
 		&StripeSubscription{},
 		&StripePayment{},
 		&Poll{},
@@ -48,8 +49,13 @@ func Migrate(DB *gorm.DB) error {
 		&Media{},
 		&OrgStripeKey{},
 		&OrgStripeWebhook{},
-	); err != nil {
-		return err
+	}
+
+	for _, model := range models {
+		if err := DB.Debug().AutoMigrate(model); err != nil {
+			log.Printf("Failed to migrate %T: %v", model, err)
+			return err
+		}
 	}
 
 	return nil
