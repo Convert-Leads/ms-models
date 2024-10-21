@@ -23,6 +23,7 @@ type NewsletterElementDecoration struct {
 	FontWeight          string `json:"fw,omitempty"`
 	FontFamily          string `json:"ff,omitempty"`
 	FontColour          string `json:"fc,omitempty"`
+	FontStyle	    string `json:"fst,omitempty"`
 	Alignment           string `json:"a,omitempty"`
 	Padding             string `json:"p,omitempty"`
 	Margin              string `json:"m,omitempty"`
