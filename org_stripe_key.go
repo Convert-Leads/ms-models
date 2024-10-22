@@ -11,9 +11,6 @@ type OrgStripeKey struct {
 type OrgStripeWebhook struct {
 	QModel
 	OrganisationID uint   `json:"organisation_id"`
-	Webhook        string `json:"webhook" gorm:"type:text"`
+	WebhookID      string `json:"webhook_id" gorm:"type:text"`
 	WebhookSecret  string `json:"webhook_secret" gorm:"type:text"`
-	IsLive         bool   `json:"is_live" gorm:"default:false"`
-	Active         bool   `json:"active" gorm:"default:false"`
 }
-
