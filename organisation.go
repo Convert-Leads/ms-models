@@ -11,9 +11,7 @@ type Organisation struct {
 	Address            string               `json:"a,omitempty"`
 	ContactEmail       string               `json:"ce,omitempty"`
 	ContactPhone       string               `json:"cp,omitempty"`
-	StripeApiKey       string               `json:"-"`
-	StripeDetails      []StripeDetail       `json:"sd,omitempty" gorm:"foreignKey:OrganisationId"`
-	Payments           []PaymentTransaction `json:"p,omitempty" gorm:"foreignKey:OrganisationId"`
+	Payments           []StripePayment      `json:"p,omitempty" gorm:"foreignKey:OrganisationId"`
 	SubscriptionLevels []SubscriptionLevel  `json:"sl,omitempty" gorm:"foreignKey:OrganisationId"`
 	Users              []User               `json:"u,omitempty" gorm:"foreignKey:OrganisationId"`
 	Groups             []Group              `json:"g,omitempty" gorm:"foreignKey:OrganisationId"`
