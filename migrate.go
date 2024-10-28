@@ -8,8 +8,6 @@ import (
 
 func Migrate(DB *gorm.DB) error {
 	models := []interface{}{
-		&StripeSubscription{},
-		&StripePayment{},
 		&Poll{},
 		&PollOption{},
 		&PollVote{},
@@ -31,8 +29,6 @@ func Migrate(DB *gorm.DB) error {
 		&PriceOption{},
 		&UserSubscription{},
 		&UserBookmark{},
-		&StripeDetail{},
-		&PaymentTransaction{},
 		&UserRole{},
 		&UserBookmark{},
 		&Safe{},
@@ -49,6 +45,9 @@ func Migrate(DB *gorm.DB) error {
 		&Media{},
 		&OrgStripeKey{},
 		&OrgStripeWebhook{},
+		&UserSubscription{},
+		&StripeSubscription{},
+		&StripePayment{},
 	}
 
 	for _, model := range models {
