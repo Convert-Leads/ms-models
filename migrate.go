@@ -30,7 +30,6 @@ func Migrate(DB *gorm.DB) error {
 		&UserSubscription{},
 		&UserBookmark{},
 		&UserRole{},
-		&UserBookmark{},
 		&Safe{},
 		&Group{},
 		&Post{},
@@ -42,10 +41,8 @@ func Migrate(DB *gorm.DB) error {
 		&CollectionInteraction{},
 		&OrganisationAPIKey{},
 		&Branding{},
-		&Media{},
 		&OrgStripeKey{},
 		&OrgStripeWebhook{},
-		&UserSubscription{},
 		&StripeSubscription{},
 		&StripePayment{},
 	}
