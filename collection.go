@@ -11,6 +11,7 @@ type Collection struct {
 	ViewCount      uint                    `json:"vc"`                                                          // New field for view count
 	Interactions   []CollectionInteraction `json:"int" gorm:"foreignKey:ParentID;constraint:OnDelete:CASCADE;"` // Related interactions
 	Image          *Media                  `json:"img,omitempty" gorm:"polymorphic:Parent;polymorphicValue:collections"`
+	ImageID        *uint                   `json:"-"`                                                         // Add this field to track the image ID
 	Chapters       []Chapter               `json:"ch,omitempty" gorm:"foreignKey:CollectionID;references:ID"` // Explicit one-to-many relationship
 	// Remove the Files field from here
 }
