@@ -82,4 +82,5 @@ type Referrer struct {
 	Active bool `json:"active"`
 	PayoutMethod string `json:"payout_method"`
 	PayoutAccount string `json:"payout_account"`
+	Code string `json:"code"`
 }
