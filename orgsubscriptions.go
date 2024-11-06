@@ -50,7 +50,7 @@ type OrgSubscription struct {
 	EndDate              *time.Time `json:"end_date"`
 	Status               string      `json:"status"`
 	StripeSubscription OrgStripeSubscription `gorm:"foreignKey:SubscriptionId" json:"stripe_subscription"`
-	ReferrerId         uint        `json:"referrer_id"`
+	ReferrerId         *uint        `json:"referrer_id"`
 	Referrer           Referrer        `gorm:"foreignKey:ReferrerId" json:"referrer"`
 }
 
