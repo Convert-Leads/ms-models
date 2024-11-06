@@ -1,0 +1,71 @@
+package models
+
+import (
+	"time"
+)
+
+
+type OrgSubscriptionLevel struct {
+	gorm.Model
+	Name                string             `json:"name"`
+	Limits      []OrgSubscriptionLevelLimit `gorm:"foreignKey:OrgSubscriptionLevelId" json:"limits"`
+	MediaID             *uint              `json:"media_id"`
+	Media               *Media             `gorm:"polymorphic:Parent;polymorphicValue:subscriptionlevels;foreignKey:MediaID" json:"media"`
+	Description         string             `json:"description" gorm:"type:text"`
+	PriceOptions        []OrgPriceOption      `json:"price_options" gorm:"foreignKey:SubscriptionLevelId"`
+	Subscribers         []UserSubscription `json:"subscribers" gorm:"foreignKey:SubscriptionLevelId"`
+	SubscriberCount     int                `gorm:"-" json:"subscriber_count"`
+	Active              bool               `json:"active" gorm:"default:true"`
+	StripeProductID     string             `json:"stripe_product_id"`
+}
+
+type OrgPriceOption struct {
+	gorm.Model
+	SubscriptionLevelId uint    `json:"subscription_level_id"`
+	Price               float64 `json:"price"`
+	Currency            string  `json:"currency"`
+	Duration            int     `json:"duration"`
+	DurationUnit        string  `json:"duration_unit"`
+	Active              bool    `json:"active"`
+	StripePriceID       string  `json:"stripe_price_id"`
+}
+
+type OrgSubscriptionLevelLimit struct {
+	QModel
+	OrgSubscriptionLevelId uint `json:"org_subscription_level_id"`
+	LimitType              string `json:"limit_type"`
+	LimitValue             int    `json:"limit_value"`
+	Threshold              int    `json:"threshold"`
+}
+
+type OrgSubscription struct {
+	QModel
+	OrganisationId      uint        `json:"organisation_id"`
+	SubscriptionLevel    OrgSubscriptionLevel `gorm:"foreignKey:SubscriptionLevelId"` 
+	SubscriptionLevelId  uint        `json:"subscription_level_id"`
+	PriceOptionId        uint        `json:"price_option_id"`
+	PriceOption          PriceOption `gorm:"foreignKey:PriceOptionId" json:"price_option"`
+	StartDate            *time.Time `json:"start_date"`
+	EndDate              *time.Time `json:"end_date"`
+	Status               string      `json:"status"`
+	StripeSubscription OrgStripeSubscription `gorm:"foreignKey:SubscriptionId" json:"stripe_subscription"`
+}
+
+type OrgStripeSubscription struct {
+	QModel
+	SubscriptionId     uint          `json:"subscription_id"`
+	Status             string          `json:"status"`
+	CurrentPeriodEnd   time.Time       `json:"current_period_end"`
+	CurrentPeriodStart time.Time       `json:"current_period_start"`
+	CustomerId         string          `json:"customer_id"`
+	Payments           []OrgStripePayment `gorm:"foreignKey:SubscriptionId;references:SubscriptionId" json:"payments"`
+}
+
+type OrgStripePayment struct {
+	QModel
+	SubscriptionId uint    `json:"subscription_id"`
+	Amount         int       `json:"amount"`
+	Currency       string    `json:"currency"`
+	Status         string    `json:"status"`
+	Timestamp      time.Time `json:"timestamp"`
+}

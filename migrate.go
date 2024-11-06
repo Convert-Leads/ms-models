@@ -45,6 +45,12 @@ func Migrate(DB *gorm.DB) error {
 		&OrgStripeWebhook{},
 		&StripeSubscription{},
 		&StripePayment{},
+		&OrgSubscriptionLevel{},
+		&OrgPriceOption{},
+		&OrgSubscriptionLevelLimit{},
+		&OrgSubscription{},
+		&OrgStripeSubscription{},
+		&OrgStripePayment{},
 	}
 
 	for _, model := range models {

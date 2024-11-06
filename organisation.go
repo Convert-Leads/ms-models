@@ -20,4 +20,5 @@ type Organisation struct {
 	HideCounts         bool                 `json:"hc,omitempty"`
 	APIKeys            []OrganisationAPIKey `json:"ak,omitempty" gorm:"foreignKey:OrganisationID"`
 	Branding           *Branding            `json:"b,omitempty" gorm:"foreignKey:OrganisationID"`
+	OrgSubscriptions   []OrgSubscription    `json:"os,omitempty" gorm:"foreignKey:OrganisationId"`
 }
