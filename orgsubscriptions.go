@@ -2,6 +2,7 @@ package models
 
 import (
 	"time"
+	"gorm.io/gorm"
 )
 
 
@@ -49,6 +50,8 @@ type OrgSubscription struct {
 	EndDate              *time.Time `json:"end_date"`
 	Status               string      `json:"status"`
 	StripeSubscription OrgStripeSubscription `gorm:"foreignKey:SubscriptionId" json:"stripe_subscription"`
+	ReferrerId         uint        `json:"referrer_id"`
+	Referrer           Referrer        `gorm:"foreignKey:ReferrerId" json:"referrer"`
 }
 
 type OrgStripeSubscription struct {
@@ -68,4 +71,15 @@ type OrgStripePayment struct {
 	Currency       string    `json:"currency"`
 	Status         string    `json:"status"`
 	Timestamp      time.Time `json:"timestamp"`
+}
+
+type Referrer struct {
+	QModel
+	Name string `json:"name"`
+	Email string `json:"email"`
+	Commission float64 `json:"commission"`
+	Terms string `json:"terms"`
+	Active bool `json:"active"`
+	PayoutMethod string `json:"payout_method"`
+	PayoutAccount string `json:"payout_account"`
 }
