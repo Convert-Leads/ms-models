@@ -14,7 +14,7 @@ type OrgSubscriptionLevel struct {
 	Media               *Media             `gorm:"polymorphic:Parent;polymorphicValue:subscriptionlevels;foreignKey:MediaID" json:"media"`
 	Description         string             `json:"description" gorm:"type:text"`
 	PriceOptions        []OrgPriceOption      `json:"price_options" gorm:"foreignKey:SubscriptionLevelId"`
-	Subscribers         []UserSubscription `json:"subscribers" gorm:"foreignKey:SubscriptionLevelId"`
+	Subscribers         []OrgSubscription `json:"subscribers" gorm:"foreignKey:SubscriptionLevelId"`
 	SubscriberCount     int                `gorm:"-" json:"subscriber_count"`
 	Active              bool               `json:"active" gorm:"default:true"`
 	StripeProductID     string             `json:"stripe_product_id"`
@@ -45,7 +45,7 @@ type OrgSubscription struct {
 	SubscriptionLevel    OrgSubscriptionLevel `gorm:"foreignKey:SubscriptionLevelId"` 
 	SubscriptionLevelId  uint        `json:"subscription_level_id"`
 	PriceOptionId        uint        `json:"price_option_id"`
-	PriceOption          PriceOption `gorm:"foreignKey:PriceOptionId" json:"price_option"`
+	PriceOption          OrgPriceOption `gorm:"foreignKey:PriceOptionId" json:"price_option"`
 	StartDate            *time.Time `json:"start_date"`
 	EndDate              *time.Time `json:"end_date"`
 	Status               string      `json:"status"`
