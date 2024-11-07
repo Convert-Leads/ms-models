@@ -51,6 +51,8 @@ func Migrate(DB *gorm.DB) error {
 		&OrgSubscription{},
 		&OrgStripeSubscription{},
 		&OrgStripePayment{},
+		&Visit{},
+		&SignUpDetails{},
 	}
 
 	for _, model := range models {
