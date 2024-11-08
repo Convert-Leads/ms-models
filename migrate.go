@@ -53,7 +53,7 @@ func Migrate(DB *gorm.DB) error {
 		&OrgStripePayment{},
 		&Visit{},
 		&SignUpDetails{},
-	}
+		&ReferrerPayment{},
 
 	for _, model := range models {
 		if err := DB.AutoMigrate(model); err != nil {

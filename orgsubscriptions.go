@@ -84,3 +84,13 @@ type Referrer struct {
 	PayoutAccount string `json:"payout_account"`
 	Code string `json:"code"`
 }
+
+type ReferrerPayment struct {
+	QModel
+	ReferrerId uint `json:"referrer_id"`
+	Amount float64 `json:"amount"`
+	Currency string `json:"currency"`
+	Status string `json:"status"`
+	Method string `json:"method"`
+	Account string `json:"account"`
+}
