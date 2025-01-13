@@ -10,7 +10,6 @@ type Organisation struct {
 	WelcomeScreen      *Media               `gorm:"polymorphic:Parent;polymorphicValue:organisations" json:"ws,omitempty"`
 	Address            string               `json:"a,omitempty"`
 	ContactEmail       string               `json:"ce,omitempty"`
-	CountryCode        string               `json:"cc,omitempty"`
 	ContactPhone       string               `json:"cp,omitempty"`
 	Payments           []StripePayment      `json:"p,omitempty" gorm:"-"`
 	SubscriptionLevels []SubscriptionLevel  `json:"sl,omitempty" gorm:"foreignKey:OrganisationId"`
