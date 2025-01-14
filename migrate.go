@@ -12,6 +12,7 @@ func Migrate(DB *gorm.DB) error {
 		&PollOption{},
 		&PollVote{},
 		&ContentType{},
+		&FirstTimeExperience{},
 		&Organisation{},
 		&User{},
 		&CallToAction{},
