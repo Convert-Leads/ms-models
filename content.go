@@ -31,5 +31,5 @@ type Content struct {
 	WatchCount         int                  `json:"wc" gorm:"-"`
 	HasAccess          bool                 `json:"ha" gorm:"-"`
 	WatchTime          int                  `json:"wt,omitempty" gorm:"-"` // Change to pointer type
-	File               *Media               `json:"f,omitempty" gorm:"polymorphic:Parent;polymorphicValue:contentfile"`
+	File               *Media               `json:"f,omitempty" gorm:"polymorphic:Parent;polymorphicValue:contentmedia"`
 }

@@ -49,19 +49,19 @@ type OrgSubscription struct {
 	StartDate           *time.Time            `json:"start_date"`
 	EndDate             *time.Time            `json:"end_date"`
 	Status              string                `json:"status"`
-	StripeSubscription  OrgStripeSubscription `gorm:"foreignKey:SubscriptionId" json:"stripe_subscription"`
+	StripeSubscription  OrgStripeSubscription `gorm:"foreignKey:OrgSubscriptionId" json:"stripe_subscription"`
 	ReferrerId          *uint                 `json:"referrer_id"`
 	Referrer            Referrer              `gorm:"foreignKey:ReferrerId" json:"referrer"`
 }
 
 type OrgStripeSubscription struct {
 	QModel
-	SubscriptionId     uint               `json:"subscription_id"`
-	Status             string             `json:"status"`
-	CurrentPeriodEnd   time.Time          `json:"current_period_end"`
-	CurrentPeriodStart time.Time          `json:"current_period_start"`
-	CustomerId         string             `json:"customer_id"`
-	Payments           []OrgStripePayment `json:"payments"`
+	OrgSubscriptionId    uint               `json:"org_subscription_id"`
+	StripeSubscriptionId string             `json:"stripe_subscription_id"`
+	CurrentPeriodEnd     time.Time          `json:"current_period_end"`
+	CurrentPeriodStart   time.Time          `json:"current_period_start"`
+	CustomerId           string             `json:"customer_id"`
+	Payments             []OrgStripePayment `json:"payments"`
 }
 
 type OrgStripePayment struct {
