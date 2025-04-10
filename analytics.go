@@ -17,12 +17,6 @@ type NewsletterDetail struct {
 	UnopenedCount int     `json:"unopenedCount"`
 }
 
-// NewsletterAPIResponse is the top-level structure for the newsletters API response.
-type NewsletterAPIResponse struct {
-	Overview    NewsletterOverview `json:"overview"`
-	Newsletters []NewsletterDetail `json:"newsletters"`
-}
-
 // ClipOverview holds the summary statistics for all clips.
 type ClipOverview struct {
 	TotalRevenue     float64 `json:"totalRevenue"`
@@ -39,12 +33,6 @@ type ClipDetail struct {
 	Likes     int     `json:"likes"`
 	Views     int     `json:"views"`
 	Bookmarks int     `json:"bookmarks"`
-}
-
-// ClipAPIResponse is the top-level structure for the clips API response.
-type ClipAPIResponse struct {
-	Overview ClipOverview `json:"overview"`
-	Clips    []ClipDetail `json:"clips"`
 }
 
 // CollectionOverview holds the summary statistics for all collections.
@@ -64,12 +52,6 @@ type CollectionDetail struct {
 	Views     int     `json:"views"`
 }
 
-// CollectionAPIResponse is the top-level structure for the collections API response.
-type CollectionAPIResponse struct {
-	Overview    CollectionOverview `json:"overview"`
-	Collections []CollectionDetail `json:"collections"`
-}
-
 // CircleOverview holds the summary statistics for all circles.
 type CircleOverview struct {
 	TotalMembers     int     `json:"totalMembers"`
@@ -87,10 +69,4 @@ type CircleDetail struct {
 	TotalPosts           int     `json:"totalPosts"`
 	TotalComments        int     `json:"totalComments"`
 	TotalLikes           int     `json:"totalLikes"`
-}
-
-// CircleAPIResponse is the top-level structure for the circles API response.
-type CircleAPIResponse struct {
-	Overview CircleOverview `json:"overview"`
-	Circles  []CircleDetail `json:"circles"`
 }
