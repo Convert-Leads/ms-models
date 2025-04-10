@@ -2,7 +2,7 @@ package models
 
 // NewsletterOverview holds the summary statistics for all newsletters.
 type NewsletterOverview struct {
-	AverageOpenRate  int     `json:"averageOpenRate"`
+	AverageOpenRate  float64 `json:"averageOpenRate"`
 	TotalRevenue     float64 `json:"totalRevenue"`
 	TotalConversions int     `json:"totalConversions"`
 }
@@ -25,6 +25,7 @@ type NewsletterAPIResponse struct {
 
 // ClipOverview holds the summary statistics for all clips.
 type ClipOverview struct {
+	TotalReelViews   int     `json:"totalReelViews"`
 	TotalRevenue     float64 `json:"totalRevenue"`
 	TotalConversions int     `json:"totalConversions"`
 }
