@@ -19,6 +19,7 @@ type NewsletterDetail struct {
 
 // ClipOverview holds the summary statistics for all clips.
 type ClipOverview struct {
+	TotalReelViews   int     `json:"totalReelViews"`
 	TotalRevenue     float64 `json:"totalRevenue"`
 	TotalConversions int     `json:"totalConversions"`
 }
